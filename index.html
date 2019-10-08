@@ -3,31 +3,27 @@
 <head>
     <!--Required Meta's-->
     <meta charset="UTF-8">
-    <title>Psychic letter guess</title>
-    <script src="jquery-3.4.1.min.js"></script>
+    <title>Psychic Game</title>
+    <link rel="stylesheet" href="assets/css/style.css"/>
+    <link rel="stylesheet" href="assets/css/reset.css"/>
+    
     
 </head>
 <body>
-    <script>
-    var randomLetter = getRandomLetter(24);
-    var guess;
-    var guessCount = 0;
-    var correctGuess = false;
+        <!--UI instructions-->
+        <h1>The Psychic Game</h1>
+        <h3>Guess what letter I'm thinking of</h3>
+        
+<!--div container for the default values of the game-->
+    <div class="container">
+    <h4>Press any Letter key to begin!</h2>
+    <p>Wins:<span id="wins "></span></p>
+    <p>Losses:<span id="losses "></span></p>
+    <p>Guessed Letters:<span></span></p>
+    <p>Left:<span id="left "></span></p>
+</div>
+<!--javascript script src-->
+<script src="assets/javascript/game.js"></script>
 
-    function getRandomNumber(upper) {
-        var letter = Math.floor(Math.random()*upper) + 1;
-        return letter;
-    }
-    while(true) {
-        guess = prompt("Guess the letter I'm thinking.");
-        guessCount += 1;
-        if (parseInt(guess)) === randomLetter) {
-            correctGuess = true;
-            break;
-        }
-    
-    document.write("<h1>You guessed the correct letter!</h1>");
-    document.write("it took you " + guessCount + "tries to guess the letter " + randomLetter);
-    </script>
 </body>
 </html>
