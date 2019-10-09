@@ -18,9 +18,9 @@ var newLetter = function() {
 }
 
 
-//letters leftover for guess
+//letters leftover for guesses
 var guessesLeft = function() {
-    document.getElementById("left").innerHTML = left;
+    document.getElementById("left").innerHTML = guesses;
 }
 
 
@@ -28,10 +28,33 @@ var guessesLeft = function() {
 
 
 
-//document.onkeyup = function(event) {
-//    var userGuess = event.key;
-//    left--;
-//    guessChoices.push(userGuess);
-//    soFar();
-//    guessesLeft();
-//}
+document.onkeyup = function(event) {
+   console.log(event)
+    var userGuess = event.key;
+    for (i = 0; i < guessChoices.length; i++) {
+        if (userGuess === guessChoices[i]) {
+            alert("You guessed this letter");
+            return
+        }
+    }
+    guessChoices.push(userGuess);
+    guesses--
+    if (userGuess === psychicLetter) {
+        alert("You guess right!")
+        wins++
+        guesses = 9
+        document.getElementById("wins").innerHTML = wins;
+    } else if (guesses === 0) {
+        alert("You Lose!")
+        losses++
+        guesses = 9
+        document.getElementById("losses").innerHTML = losses;
+    }  
+        guessesLeft()
+    
+    
+    console.log(userGuess);
+}
+newLetter()
+console.log(psychicLetter);
+
