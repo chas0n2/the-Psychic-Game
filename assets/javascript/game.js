@@ -20,6 +20,7 @@ var newLetter = function() {
 
 //letters leftover for guesses
 var guessesLeft = function() {
+    //this pushes to the html
     document.getElementById("left").innerHTML = guesses;
 }
 
@@ -27,10 +28,11 @@ var guessesLeft = function() {
 
 
 
-
+//When user pushes key it runs function below 
 document.onkeyup = function(event) {
    console.log(event)
     var userGuess = event.key;
+    //key press and for loop for what letters you've pushed storing those letters then returning with 
     for (i = 0; i < guessChoices.length; i++) {
         if (userGuess === guessChoices[i]) {
             alert("You guessed this letter");
@@ -40,12 +42,12 @@ document.onkeyup = function(event) {
     guessChoices.push(userGuess);
     guesses--
     if (userGuess === psychicLetter) {
-        alert("You guess right!")
+        alert("You guessed right!");
         wins++
         guesses = 9
         document.getElementById("wins").innerHTML = wins;
     } else if (guesses === 0) {
-        alert("You Lose!")
+        alert("You Lose!");
         losses++
         guesses = 9
         document.getElementById("losses").innerHTML = losses;
