@@ -32,13 +32,13 @@ var guessesLeft = function() {
 document.onkeyup = function(event) {
    console.log(event)
     var userGuess = event.key;
-    //key press and for loop for what letters you've pushed storing those letters then returning with 
+    //key press and for loop for what letters you've pushed storing those letters then returning with an alert telling user that the letter has been used.
     for (i = 0; i < guessChoices.length; i++) {
         if (userGuess === guessChoices[i]) {
             alert("You guessed this letter");
             return
         }
-    }
+    }//if else when you push correct letter it gives you a win and also keeps track of how many guesses left
     guessChoices.push(userGuess);
     guesses--
     if (userGuess === psychicLetter) {
@@ -46,7 +46,7 @@ document.onkeyup = function(event) {
         wins++
         guesses = 9
         document.getElementById("wins").innerHTML = wins;
-    } else if (guesses === 0) {
+    } else if (guesses === 0) {//if wrong key guess wrong addes to losses and keeps track of letters pushed
         alert("You Lose!");
         losses++
         guesses = 9
@@ -60,3 +60,4 @@ document.onkeyup = function(event) {
 newLetter()
 console.log(psychicLetter);
 
+//
